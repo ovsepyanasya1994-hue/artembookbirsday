@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таинственные миры – Большое приключение</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Press Start 2P', monospace;
+            background: #1a1a2e;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+        .book-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .page {
+            display: none;
+            width: 100%;
+            max-width: 800px;
+            min-height: 80vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+            position: relative;
+            border: 6px solid #5a5a5a;
+            box-shadow: 0 0 0 4px #3d3d3d, 0 0 30px rgba(0,0,0,0.5);
+            margin: 20px;
+            text-align: center;
+        }
+        .page.active { display: flex; }
+        .bg-cover { background: radial-gradient(circle at 20% 30%, rgba(100,200,255,0.6) 2px, transparent 3px), radial-gradient(circle at 60% 20%, rgba(255,255,100,0.8) 3px, transparent 4px), radial-gradient(circle at 80% 60%, rgba(100,200,255,0.5) 2px, transparent 3px), radial-gradient(circle at 40% 70%, rgba(255,255,100,0.7) 2px, transparent 3px), radial-gradient(circle at 10% 80%, rgba(100,200,255,0.6) 4px, transparent 5px), radial-gradient(circle at 90% 10%, rgba(255,255,100,0.9) 2px, transparent 3px), linear-gradient(180deg, #0a0a2e 0%, #1a1a3e 30%, #2a1a4e 60%, #0a0a2e 100%), repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(100,200,255,0.08) 20px), repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(100,200,255,0.08) 20px); }
+        .bg-room { background: linear-gradient(180deg, #2a1a0a 0%, #4a3a2a 50%, #3a2a1a 100%), repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(139,108,66,0.3) 5px), repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(139,108,66,0.3) 5px); }
+        .bg-desert { background: linear-gradient(180deg, #5a4a2a 0%, #8a7a4a 40%, #c4a84a 70%, #f4d46a 100%), repeating-linear-gradient(45deg, transparent, transparent 7px, rgba(0,0,0,0.1) 8px), repeating-linear-gradient(-45deg, transparent, transparent 7px, rgba(0,0,0,0.1) 8px); }
+        .bg-atoms { background: radial-gradient(circle at 30% 40%, rgba(0,255,255,0.3) 50px, transparent 100px), radial-gradient(circle at 70% 60%, rgba(255,100,0,0.2) 40px, transparent 90px), linear-gradient(180deg, #0a1a2a 0%, #0a2a3a 50%, #0a1a2a 100%), repeating-linear-gradient(0deg, transparent, transparent 14px, rgba(0,255,255,0.05) 15px), repeating-linear-gradient(90deg, transparent, transparent 14px, rgba(0,255,255,0.05) 15px); }
+        .bg-zone { background: linear-gradient(180deg, #1a2a1a 0%, #2a3a2a 30%, #3a4a3a 60%, #2a3a2a 100%), repeating-linear-gradient(0deg, transparent, transparent 9px, rgba(100,150,100,0.1) 10px), repeating-linear-gradient(90deg, transparent, transparent 9px, rgba(100,150,100,0.1) 10px), radial-gradient(ellipse at 50% 80%, rgba(100,255,100,0.1) 200px, transparent 300px); }
+        .bg-lab { background: radial-gradient(ellipse at 50% 50%, rgba(255,150,0,0.2) 100px, transparent 200px), linear-gradient(180deg, #1a0a2a 0%, #2a1a3a 50%, #1a0a2a 100%), repeating-linear-gradient(0deg, transparent, transparent 11px, rgba(255,150,0,0.08) 12px), repeating-linear-gradient(90deg, transparent, transparent 11px, rgba(255,150,0,0.08) 12px); }
+        .bg-storm { background: linear-gradient(180deg, #0a0a1a 0%, #1a1a2a 40%, #2a2a3a 60%, #1a1a2a 100%), repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,100,0.03) 16px), linear-gradient(90deg, transparent 40%, rgba(255,255,200,0.05) 45%, transparent 50%); }
+        .bg-home { background: linear-gradient(180deg, #3a2a1a 0%, #5a4a2a 40%, #4a3a2a 100%), repeating-linear-gradient(0deg, transparent, transparent 6px, rgba(255,200,100,0.08) 7px), repeating-linear-gradient(90deg, transparent, transparent 6px, rgba(255,200,100,0.08) 7px); }
+        .bg-family { background: radial-gradient(circle at 50% 50%, rgba(255,100,100,0.15) 150px, transparent 250px), radial-gradient(circle at 30% 40%, rgba(255,150,150,0.1) 80px, transparent 120px), radial-gradient(circle at 70% 60%, rgba(255,150,150,0.1) 80px, transparent 120px), linear-gradient(180deg, #2a1a2a 0%, #3a2a3a 50%, #2a1a2a 100%), repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,100,100,0.03) 21px); }
+        .bg-space { background: radial-gradient(circle at 25% 30%, rgba(200,100,255,0.4) 60px, transparent 100px), radial-gradient(circle at 75% 60%, rgba(100,200,255,0.3) 50px, transparent 90px), radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 30px, transparent 50px), linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 50%, #0a0a1a 100%), repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(255,255,255,0.03) 25px), repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(255,255,255,0.03) 25px); }
+        h2 { font-size: 1.8em; color: #ffaa00; margin: 0 0 25px 0; text-shadow: 4px 4px 0 #5a3a00; letter-spacing: 2px; text-transform: uppercase; }
+        h3 { font-size: 1.2em; color: #ffff55; margin: 20px 0; text-shadow: 3px 3px 0 #5a5a00; }
+        .story-text { font-size: 0.7em; margin: 15px 0; text-align: left; color: #ffffff; text-shadow: 2px 2px 0 rgba(0,0,0,0.5); line-height: 2; }
+        .highlight { color: #ffff55; font-weight: bold; text-shadow: 2px 2px 0 #5a5a00; }
+        .danger { color: #ff5555; font-weight: bold; text-shadow: 2px 2px 0 #5a0000; }
+        .success { color: #55ff55; font-weight: bold; text-shadow: 2px 2px 0 #005500; }
+        .mc-btn { padding: 15px 25px; font-size: 0.75em; font-family: 'Press Start 2P', monospace; background: #7a7a7a; border: 4px solid #000; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: all 0.1s; text-shadow: 2px 2px 0 #000; margin: 10px; }
+        .mc-btn:hover { background: #9a9a9a; transform: translateY(-2px); }
+        .mc-btn:active { transform: translateY(2px); }
+        .mc-btn.danger-btn { background: #aa3333; border-color: #ff0000; }
+        .mc-btn.success-btn { background: #33aa33; border-color: #00ff00; }
+        .mc-input { padding: 12px; font-size: 0.75em; font-family: 'Press Start 2P', monospace; background: #3d3d3d; border: 4px solid #000; color: #ffff55; text-align: center; margin: 10px; width: 280px; text-shadow: 2px 2px 0 #000; }
+        .mc-input::placeholder { color: #7a7a7a; }
+        .artifact { display: inline-block; margin: 10px; padding: 12px 20px; border: 4px solid #5a5a5a; background: rgba(139,108,66,0.8); font-size: 0.65em; color: #ffff55; text-shadow: 2px 2px 0 #000; }
+        .inventory-box { margin: 15px 0; padding: 15px; border: 4px solid #5a5a5a; background: rgba(61,61,61,0.8); font-size: 0.65em; color: #ffff55; }
+        .family-wish { background: rgba(61,61,61,0.7); border: 4px solid #ffff55; padding: 15px; margin: 15px 0; text-align: left; }
+        .family-wish p { font-size: 0.65em; line-height: 2; }
+        .family-wish .author { color: #ffff55; font-weight: bold; margin-top: 8px; font-size: 0.7em; }
+        .riddle-box { background: rgba(0,0,0,0.5); border: 4px dashed #ffff55; padding: 15px; margin: 15px 0; }
+        .hidden { display: none !important; }
+        .choices { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 25px 0; }
+        .heart-message { text-align: center; font-size: 0.9em; color: #ff5555; margin: 20px 0; text-shadow: 2px 2px 0 #5a0000; }
+        .nav-buttons { display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
+        .page-number { font-size: 0.6em; color: #7a7a7a; margin-bottom: 15px; }
+        @media (max-width: 768px) { h2 { font-size: 1.4em; } h3 { font-size: 1em; } .page { padding: 20px 15px; margin: 10px; } .story-text { font-size: 0.6em; } .mc-btn { font-size: 0.6em; padding: 10px 15px; } .mc-input { font-size: 0.6em; width: 240px; } }
+    </style>
+</head>
+<body>
+
+<!-- СТРАНИЦА 0: ОБЛОЖКА -->
+<div class="book-container"><div class="page bg-cover active" id="page0">
+<div class="page-number">Страница 1</div>
+<h2 style="font-size:1.6em;color:#ffff55;text-shadow:4px 4px 0 #5a5a00;">⛏️ Таинственные миры ⛏️</h2>
+<p style="color:#ffff55;text-shadow:2px 2px 0 #000;margin:15px 0;font-size:0.7em;line-height:2;">Большое приключение для особенного волшебника,<br>которому сегодня исполняется <span class="highlight">8 лет</span></p>
+<p style="color:#aaa;font-size:0.6em;margin-top:20px;">Нажми на кнопку, чтобы открыть книгу</p>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPage(1)">📖 Открыть книгу</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 1: ПРОБУЖДЕНИЕ -->
+<div class="book-container"><div class="page bg-room" id="page1">
+<div class="page-number">Страница 2</div>
+<h2>Ⅰ. Пробуждение</h2>
+<p class="story-text">В твоей комнате, среди чертежей и моделей атомов, что-то изменилось. Старое радио ожило и прошептало:</p>
+<p class="story-text" style="color:#ffff55;"><em>«Сегодня твой день, Волшебник. Тебе 8 лет — возраст первой магии. Миры ждут! Пройди сквозь Пески, Атомы, Зону и Грозу. Найди Искру Начала и вернись домой с самым важным словом.»</em></p>
+<p class="story-text">Твой велосипед засветился. Пора!</p>
+<div id="nameChoice"><button class="mc-btn" onclick="askName()">Я готов! Назвать своё имя</button></div>
+<div id="nameInput" class="hidden"><input type="text" id="wizardNameField" class="mc-input" placeholder="Введи своё имя, маг"><button class="mc-btn" onclick="setName()">Отправиться!</button></div>
+<div id="nameResult" class="hidden"><p class="story-text" id="nameGreeting"></p><div class="inventory-box" id="inventory">🎒 Рюкзак: Карта Миров</div><button class="mc-btn" onclick="goToPage(2)">🗺️ К карте!</button></div>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPage(0)">◀ Назад</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 2: ПУСТЫНЯ -->
+<div class="book-container"><div class="page bg-desert" id="page2">
+<div class="page-number">Страница 3</div>
+<h2>Ⅱ. Пески Арракиса</h2>
+<p class="story-text">Колёса касаются золотого песка. Ты на <span class="highlight">Арракисе</span>. Из бури выходит торговец <span class="highlight">Зигмунд</span>.</p>
+<p class="story-text"><em>«Приветствую, <span class="wiz">путник</span>! Я покажу дорогу к Великому Червю. Или через <span class="highlight">Забытый Храм</span> за артефактом. Что выберешь?»</em></p>
+<div class="choices"><button class="mc-btn" onclick="goToPage(3)">🌵 К Червю</button><button class="mc-btn" onclick="goToPage(4)">🏛️ В Храм</button></div>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPage(1)">◀ Назад</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 3: ЧЕРВЬ -->
+<div class="book-container"><div class="page bg-desert" id="page3">
+<div class="page-number">Страница 4</div>
+<h3>🐉 Великий Червь</h3>
+<p class="story-text">Песок дрожит — поднимается <span class="highlight">Великий Червь</span>. Он мудр, а не страшен.</p>
+<div class="riddle-box"><p class="story-text" style="text-align:center;"><em>«Ответь на загадку:<br><strong>Что можно разбить одним словом, но чинить годами?»</strong></em></p>
+<div class="choices"><button class="mc-btn" onclick="answerWorm('trust')">Доверие</button><button class="mc-btn" onclick="answerWorm('glass')">Стекло</button><button class="mc-btn" onclick="answerWorm('heart')">Сердце</button></div></div>
+<div id="wormResult" class="hidden"></div>
+<div id="wormNext" class="hidden"><button class="mc-btn" onclick="goToPage(5)">⚛ В мир атомов</button></div>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPage(2)">◀ Назад</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 4: ХРАМ -->
+<div class="book-container"><div class="page bg-desert" id="page4">
+<div class="page-number">Страница 5</div>
+<h3>🏛️ Забытый Храм</h3>
+<p class="story-text">Стены светятся синими рунами. На алтаре — <span class="highlight">Кристалл Памяти</span>. Но появляется <span class="highlight">Песчаный Элементаль</span>!</p>
+<div class="choices"><button class="mc-btn" onclick="fightElem('magic')">Магия</button><button class="mc-btn" onclick="fightElem('talk')">Договориться</button></div>
+<div id="elemResult" class="hidden"></div>
+<div id="elemNext" class="hidden"><button class="mc-btn" onclick="goToPage(5)">⚛ В мир атомов</button></div>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPage(2)">◀ Назад</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 5: АТОМЫ -->
+<div class="book-container"><div class="page bg-atoms" id="page5">
+<div class="page-number">Страница 6</div>
+<h2>Ⅲ. Танец Электронов</h2>
+<p class="story-text">Ты на орбите <span class="highlight">Урана-235</span>. К тебе летит электрон <span class="highlight">Искрик</span>.</p>
+<p class="story-text"><em>«Привет, <span class="wiz">Волшебник</span>! Впереди портал, но в тоннелях <span class="highlight">Тёмная Материя</span>. Летим быстро или осторожно?»</em></p>
+<div class="choices"><button class="mc-btn danger-btn" onclick="goToPage(6)">💨 Быстро</button><button class="mc-btn success-btn" onclick="goToPage(7)">🛡️ Осторожно</button></div>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPrevDesert()">◀ Назад</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 6: БЫСТРЫЙ ПУТЬ -->
+<div class="book-container"><div class="page bg-atoms" id="page6">
+<div class="page-number">Страница 7</div>
+<h3>💨 Скоростной тоннель</h3>
+<p class="story-text">Вы врываетесь в тоннель. Но путь перекрывает <span class="danger">Тёмная Материя</span>!</p>
+<div class="choices"><button class="mc-btn" onclick="fightDark('courage')">Вспомнить храбрость</button><button class="mc-btn" onclick="fightDark('spell')">Заклинание</button></div>
+<div id="darkResult" class="hidden"></div>
+<div id="darkNext" class="hidden"><button class="mc-btn" onclick="goToPage(8)">🏚️ В Город Тишины</button></div>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPage(5)">◀ Назад</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 7: ОСТОРОЖНЫЙ ПУТЬ -->
+<div class="book-container"><div class="page bg-atoms" id="page7">
+<div class="page-number">Страница 8</div>
+<h3>🛡️ Обходной путь</h3>
+<p class="story-text">Вы летите медленно. Искрик показывает <span class="highlight">квантовую запутанность</span> и <span class="highlight">рождение фотона</span>.</p>
+<p class="story-text"><em>«Атомы внутри тебя когда-то были внутри звёзд. Ты сделан из звёздной пыли.»</em></p>
+<p class="story-text"><span class="success">Путь безопасен!</span></p>
+<button class="mc-btn" onclick="arriveAtZone()">Войти в портал</button>
+<div id="atomArrivalSafe" class="hidden"><p class="story-text">Портал открыт! Искрик: <em>«Удачи! Помни: ты — звезда.»</em></p><div class="artifact">⚡ Частица Искрика</div><button class="mc-btn" onclick="goToPage(8)">🏚️ В Город Тишины</button></div>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPage(5)">◀ Назад</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 8: ЗОНА -->
+<div class="book-container"><div class="page bg-zone" id="page8">
+<div class="page-number">Страница 9</div>
+<h2>Ⅳ. Город Тишины</h2>
+<p class="story-text">Ты в <span class="highlight">Припяти</span>. Из здания выходит робот <span class="highlight">Р-47</span>.</p>
+<p class="story-text"><em>«Привет, <span class="wiz">Волшебник</span>. Я храню память. Вот <span class="highlight">Стена Памяти</span> — оставь своё имя.»</em></p>
+<input type="text" id="memorialName" class="mc-input" placeholder="Впиши своё имя..."><button class="mc-btn" onclick="writeOnMemorial()">Вписать</button>
+<div id="memorialResult" class="hidden"></div>
+<div id="robotGift" class="hidden"><p class="story-text">Р-47: <em>«Возьми <span class="highlight">Ваниль</span> и <span class="highlight">Тин-Тин</span>.»</em></p><button class="mc-btn" onclick="collectArtifacts()">Принять дары</button></div>
+<div id="zoneResult" class="hidden"></div>
+<div id="zoneExtra" class="hidden"><h3>📡 Загадочный сигнал</h3><p class="story-text">Р-47: <em>«Из саркофага сигнал. Исследовать?»</em></p><div class="choices"><button class="mc-btn danger-btn" onclick="goToPage(9)">Исследовать</button><button class="mc-btn" onclick="goToPage(10)">Идти дальше</button></div></div>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPrevAtoms()">◀ Назад</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 9: САРКОФАГ -->
+<div class="book-container"><div class="page bg-zone" id="page9">
+<div class="page-number">Страница 10</div>
+<h3>📡 Саркофаг</h3>
+<p class="story-text">Внутри — <span class="highlight">светящийся цветок</span>. Р-47: <em>«Жизнецвет. Символ надежды.»</em></p>
+<div class="artifact">🌸 Жизнецвет</div>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPage(8)">◀ Назад</button><button class="mc-btn" onclick="goToPage(10)">▶ В лабораторию</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 10: ЛАБОРАТОРИЯ -->
+<div class="book-container"><div class="page bg-lab" id="page10">
+<div class="page-number">Страница 11</div>
+<h2>Ⅴ. Магия Ванили и Тин-Тина</h2>
+<p class="story-text">Ты в лаборатории. На стойке сидит <span class="highlight">кот Мур-Мур</span>.</p>
+<p class="story-text"><em>«Мяу! Нужна <span class="highlight">Искра</span>. Откуда возьмём?»</em></p>
+<div class="choices"><button class="mc-btn" onclick="findSpark('crystal')">Кристалл</button><button class="mc-btn" onclick="findSpark('particle')">Частица</button><button class="mc-btn" onclick="findSpark('memory')">Воспоминание</button></div>
+<div id="sparkResult" class="hidden"></div>
+<div id="labPhase2" class="hidden"><h3>🧪 Смешивание</h3><p class="story-text">Мур-Мур: <em>«Нужен <span class="highlight">боевой клич</span>!»</em></p><input type="text" id="battlecryField" class="mc-input" placeholder="Твой клич!"><button class="mc-btn" onclick="activateTNT()">Активировать!</button><div id="labResult" class="hidden"></div></div>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPrevZone()">◀ Назад</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 11: ГРОЗА -->
+<div class="book-container"><div class="page bg-storm" id="page11">
+<div class="page-number">Страница 12</div>
+<h2>Ⅵ. Гроза Обид</h2>
+<p class="story-text"><span class="highlight">Гроза Обид</span>! Три Тени. <span class="highlight">Ваниль</span> смягчает первую. <span class="highlight">Искра</span> — вторую. <span class="highlight">Тин-Тин</span> — третью!</p>
+<div class="riddle-box"><p class="story-text" style="text-align:center;"><em>«<strong>Что самое важное ты понял?»</strong></em></p>
+<div class="choices"><button class="mc-btn" onclick="answerRainbow('love')">Любовь сильнее ссор</button><button class="mc-btn" onclick="answerRainbow('magic')">Магия повсюду</button><button class="mc-btn" onclick="answerRainbow('family')">Я нужен родным</button></div></div>
+<div id="rainbowResult" class="hidden"></div>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPage(10)">◀ Назад</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 12: ДОМ -->
+<div class="book-container"><div class="page bg-home" id="page12">
+<div class="page-number">Страница 13</div>
+<h2>Ⅶ. Бумажное Сердце</h2>
+<p class="story-text">Ты дома. Записка от мамы:</p>
+<p style="color:#ffff55;font-size:0.7em;margin:15px 0;text-shadow:2px 2px 0 #000;line-height:2;font-style:italic;text-align:center;">«Мой любимый Волшебник,<br>я всегда рядом.<br>Ты — моё приключение.»</p>
+<input type="text" id="momMessageField" class="mc-input" placeholder="Твои слова маме..."><button class="mc-btn" onclick="sendMomMessage()">Отправить 💌</button>
+<div id="momResult" class="hidden"></div>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPage(11)">◀ Назад</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 13: ТЕБЯ ЛЮБЯТ -->
+<div class="book-container"><div class="page bg-family" id="page13">
+<div class="page-number">Страница 14</div>
+<h2>Ⅷ. Тебя любят</h2>
+<p class="story-text">Комната наполнилась светом. Все, кто любит <span class="wiz">Волшебника</span>, здесь.</p>
+<div class="heart-message">❤️ Ты — сердце мира ❤️</div>
+<div class="family-wish"><p><span class="highlight">Мама:</span> «Ты — причина моей улыбки. Без тебя мир серый. Люблю больше всех звёзд.»</p><p class="author">— Мама</p></div>
+<div class="family-wish"><p><span class="highlight">Бабушка:</span> «Твои глаза сияют. Ты изменишь мир!»</p><p class="author">— Бабушка</p></div>
+<div class="family-wish"><p><span class="highlight">Ася:</span> «Мир держится на таких, как ты. Ты — клей, соединяющий всех.»</p><p class="author">— Ася</p></div>
+<p class="story-text" style="text-align:center;color:#ffff55;"><strong>Без тебя мир не существует.<br>Ты — Волшебник!</strong></p>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPage(12)">◀ Назад</button><button class="mc-btn" onclick="goToPage(14)">▶ Дальше</button></div>
+</div></div>
+
+<!-- СТРАНИЦА 14: ЭПИЛОГ -->
+<div class="book-container"><div class="page bg-space" id="page14">
+<div class="page-number">Страница 15</div>
+<h2>Эпилог: Твоя Вселенная</h2>
+<p class="story-text">Ты прошёл все миры. В рюкзаке: <span class="highlight">Ваниль</span>, <span class="highlight">Тин-Тин</span>, и целая Вселенная.</p>
+<p class="story-text">Загадай желание!</p>
+<input type="text" id="wishField" class="mc-input" placeholder="Моё желание..."><button class="mc-btn" onclick="makeWish()">Загадать! ✨</button>
+<div id="wishResult" class="hidden"></div>
+<div class="inventory-box" id="bookOfWorlds" style="display:none;margin-top:20px;"><h3 style="color:#ffff55;font-size:0.8em;">📖 Книга Миров</h3><p>👤 <span id="bookName"></span></p><p>🏜️ <span id="bookDune"></span></p><p>⚛️ <span id="bookAtom"></span></p><p>🏚️ <span id="bookZone"></span></p><p>💥 <span id="bookCry"></span></p><p>💌 <span id="bookMom"></span></p><p>🌟 <span id="bookWish"></span></p></div>
+<div class="nav-buttons"><button class="mc-btn" onclick="goToPage(13)">◀ Назад</button><button class="mc-btn" onclick="goToPage(0)">🔄 В начало</button></div>
+</div></div>
+
+<script>
+let state = { wizardName: 'Волшебник', inventory: ['Карта Миров'], duneChoice: null, atomPath: null, zoneMemorial: false, zoneExplored: false, sparkSource: null, battlecry: null, momMessage: null, wish: null };
+function updateNames() { document.querySelectorAll('.wiz').forEach(el => el.textContent = state.wizardName); }
+function goToPage(n) { document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); let pg = document.getElementById('page'+n); if(pg) { pg.classList.add('active'); pg.scrollIntoView({behavior:'smooth',block:'center'}); } }
+function goToPrevDesert() { if(state.duneChoice==='worm') goToPage(3); else if(state.duneChoice==='temple') goToPage(4); else goToPage(2); }
+function goToPrevAtoms() { if(state.atomPath==='fast') goToPage(6); else if(state.atomPath==='safe') goToPage(7); else goToPage(5); }
+function goToPrevZone() { if(state.zoneExplored) goToPage(9); else goToPage(8); }
+function updateInv() { let inv = document.getElementById('inventory'); if(inv && state.inventory.length>0) inv.innerHTML = '🎒 Рюкзак: '+state.inventory.join(' | '); }
+
+// Глава 1
+function askName() { document.getElementById('nameChoice').classList.add('hidden'); document.getElementById('nameInput').classList.remove('hidden'); }
+function setName() { let n = document.getElementById('wizardNameField').value.trim(); if(!n) return; state.wizardName = n; updateNames(); document.getElementById('nameInput').classList.add('hidden'); document.getElementById('nameResult').classList.remove('hidden'); document.getElementById('nameGreeting').innerHTML = 'Привет, <span class="highlight">'+n+'</span>! Твой велосипед заряжен!'; }
+
+// Глава 2
+function answerWorm(a) { state.duneChoice='worm'; document.getElementById('wormResult').classList.remove('hidden'); let t = a==='trust'||a==='heart'?'<span class="success">Верно!</span> Мудрый ответ.':'Червь: <em>«Ладно, проходи.»</em>'; document.getElementById('wormResult').innerHTML = '<p class="story-text">'+t+'</p><div class="artifact">🐉 Чешуйка Червя</div>'; state.inventory.push('Чешуйка Червя'); updateInv(); document.getElementById('wormNext').classList.remove('hidden'); }
+function fightElem(m) { state.duneChoice='temple'; document.getElementById('elemResult').classList.remove('hidden'); let t = m==='magic'?'Элементаль рассыпается искрами!':'<em>«За уважение дарю Кристалл.»</em>'; document.getElementById('elemResult').innerHTML = '<p class="story-text">'+t+'</p><div class="artifact">💎 Кристалл Памяти</div>'; state.inventory.push('Кристалл Памяти'); updateInv(); document.getElementById('elemNext').classList.remove('hidden'); }
+
+// Глава 3
+function fightDark(m) { state.atomPath='fast'; document.getElementById('darkResult').classList.remove('hidden'); document.getElementById('darkResult').innerHTML = '<p class="story-text">'+(m==='courage'?'Ты вспомнил храбрость!':'Заклинание сработало!')+'</p><p class="story-text"><span class="success">Победа!</span></p><div class="artifact">⚡ Частица Искрика</div>'; state.inventory.push('Частица Искрика'); updateInv(); document.getElementById('darkNext').classList.remove('hidden'); }
+function arriveAtZone() { state.atomPath='safe'; state.inventory.push('Частица Искрика'); updateInv(); document.getElementById('atomArrivalSafe').classList.remove('hidden'); }
+
+// Глава 4
+function writeOnMemorial() { let n = document.getElementById('memorialName').value.trim(); if(!n) return; state.zoneMemorial=true; document.getElementById('memorialResult').classList.remove('hidden'); document.getElementById('memorialResult').innerHTML = '<p class="story-text"><span class="success">Имя вписано!</span></p>'; document.getElementById('robotGift').classList.remove('hidden'); }
+function collectArtifacts() { state.inventory.push('Флакон Ванили','Тин-Тин'); document.getElementById('zoneResult').classList.remove('hidden'); document.getElementById('zoneResult').innerHTML = '<p class="story-text">Ты взял <span class="highlight">Ваниль</span> и <span class="highlight">Тин-Тин</span>.</p><div class="artifact">🧪 Ваниль</div><div class="artifact">🧨 Тин-Тин</div>'; updateInv(); document.getElementById('zoneExtra').classList.remove('hidden'); }
+
+// Глава 5
+function findSpark(s) { state.sparkSource=s; document.querySelector('#page10 .choices').classList.add('hidden'); document.getElementById('sparkResult').classList.remove('hidden'); document.getElementById('labPhase2').classList.remove('hidden'); let m = {crystal:'Кристалл дал Искру знаний!',particle:'Частица стала Искрой!',memory:'Сердце родило Искру!'}; document.getElementById('sparkResult').innerHTML = '<p class="story-text">'+m[s]+'</p><div class="artifact">✨ Искра</div>'; }
+function activateTNT() { let c = document.getElementById('battlecryField').value.trim(); if(!c) return; state.battlecry=c; document.getElementById('labResult').classList.remove('hidden'); document.getElementById('labResult').innerHTML = '<p class="story-text">Клич: <span class="highlight">«'+c+'!!!»</span> Тин-Тин дрожит! Зелье готово!</p><button class="mc-btn" onclick="goToPage(11)">🌩️ Встретить Грозу!</button>'; }
+
+// Глава 6
+function answerRainbow(a) { state.rainbowAnswer=a; document.getElementById('rainbowResult').classList.remove('hidden'); document.getElementById('rainbowResult').innerHTML = '<p class="story-text"><span class="success">Хранитель Радуги улыбается!</span></p><p class="story-text">Радуга: <strong>«Любовь чинит мир.»</strong></p><button class="mc-btn" onclick="goToPage(12)">🏠 Домой</button>'; }
+
+// Глава 7
+function sendMomMessage() { let m = document.getElementById('momMessageField').value.trim(); if(!m) return; state.momMessage=m; document.getElementById('momResult').classList.remove('hidden'); document.getElementById('momResult').innerHTML = '<p class="story-text">Ты пишешь: <span class="highlight">«'+m+'»</span></p><p class="story-text">Мама обнимает тебя.</p><button class="mc-btn" onclick="goToPage(13)">❤️ Дальше</button>'; }
+
+// Эпилог
+function makeWish() { let w = document.getElementById('wishField').value.trim(); if(!w) return; state.wish=w; document.getElementById('wishResult').classList.remove('hidden'); document.getElementById('wishResult').innerHTML = '<p class="story-text">Желание: <span class="highlight">«'+w+'»</span></p><p style="color:#ffff55;"><strong>🎂 С Днём Рождения, '+state.wizardName+'! 🎂</strong></p>'; showBook(); }
+function showBook() { document.getElementById('bookOfWorlds').style.display='block'; document.getElementById('bookName').textContent=state.wizardName; document.getElementById('bookDune').textContent=state.duneChoice==='worm'?'Великий Червь 🐉':'Забытый Храм 💎'; document.getElementById('bookAtom').textContent=state.atomPath==='fast'?'Скоростной тоннель 💨':'Обходной путь 🛡️'; document.getElementById('bookZone').textContent=state.zoneExplored?'Саркофаг 🌸':'Безопасно 🏚️'; document.getElementById('bookCry').textContent=state.battlecry||'Не активирован'; document.getElementById('bookMom').textContent='«'+(state.momMessage||'...')+'»'; document.getElementById('bookWish').textContent='«'+(state.wish||'...')+'»'; }
+
+updateNames();
+</script>
+</body>
+</html>
