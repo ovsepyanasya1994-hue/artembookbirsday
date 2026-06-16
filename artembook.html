@@ -1,0 +1,1058 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="ru"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Книга Миров – Расширенное Приключение&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>* { margin: 0; padding: 0; box-sizing: border-box; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Press Start 2P', monospace;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #1a1a2e;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scroll-behavior: smooth;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.8;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.chapter {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 60px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-size: cover;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-position: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-attachment: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 4px solid #5a5a5a;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.chapter::before {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0; left: 0; right: 0; bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.7);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* Фоны */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bg-cover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background:<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 20% 30%, rgba(100, 200, 255, 0.6) 2px, transparent 3px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 60% 20%, rgba(255, 255, 100, 0.8) 3px, transparent 4px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 80% 60%, rgba(100, 200, 255, 0.5) 2px, transparent 3px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 40% 70%, rgba(255, 255, 100, 0.7) 2px, transparent 3px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 10% 80%, rgba(100, 200, 255, 0.6) 4px, transparent 5px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 90% 10%, rgba(255, 255, 100, 0.9) 2px, transparent 3px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>linear-gradient(180deg, #0a0a2e 0%, #1a1a3e 30%, #2a1a4e 60%, #0a0a2e 100%),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(100, 200, 255, 0.08) 20px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(100, 200, 255, 0.08) 20px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bg-room {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">                </span>linear-gradient(180deg, #2a1a0a 0%, #4a3a2a 50%, #3a2a1a 100%),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(139, 108, 66, 0.3) 5px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(139, 108, 66, 0.3) 5px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bg-desert {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">                </span>linear-gradient(180deg, #5a4a2a 0%, #8a7a4a 40%, #c4a84a 70%, #f4d46a 100%),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(45deg, transparent, transparent 7px, rgba(0,0,0,0.1) 8px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(-45deg, transparent, transparent 7px, rgba(0,0,0,0.1) 8px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bg-atoms {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 30% 40%, rgba(0, 255, 255, 0.3) 50px, transparent 100px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 70% 60%, rgba(255, 100, 0, 0.2) 40px, transparent 90px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>linear-gradient(180deg, #0a1a2a 0%, #0a2a3a 50%, #0a1a2a 100%),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(0deg, transparent, transparent 14px, rgba(0, 255, 255, 0.05) 15px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(90deg, transparent, transparent 14px, rgba(0, 255, 255, 0.05) 15px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bg-zone {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">                </span>linear-gradient(180deg, #1a2a1a 0%, #2a3a2a 30%, #3a4a3a 60%, #2a3a2a 100%),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(0deg, transparent, transparent 9px, rgba(100, 150, 100, 0.1) 10px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(90deg, transparent, transparent 9px, rgba(100, 150, 100, 0.1) 10px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(ellipse at 50% 80%, rgba(100, 255, 100, 0.1) 200px, transparent 300px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bg-lab {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(ellipse at 50% 50%, rgba(255, 150, 0, 0.2) 100px, transparent 200px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>linear-gradient(180deg, #1a0a2a 0%, #2a1a3a 50%, #1a0a2a 100%),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(0deg, transparent, transparent 11px, rgba(255, 150, 0, 0.08) 12px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(90deg, transparent, transparent 11px, rgba(255, 150, 0, 0.08) 12px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bg-storm {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">                </span>linear-gradient(180deg, #0a0a1a 0%, #1a1a2a 40%, #2a2a3a 60%, #1a1a2a 100%),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255, 255, 100, 0.03) 16px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>linear-gradient(90deg, transparent 40%, rgba(255, 255, 200, 0.05) 45%, transparent 50%);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bg-home {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">                </span>linear-gradient(180deg, #3a2a1a 0%, #5a4a2a 40%, #4a3a2a 100%),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(0deg, transparent, transparent 6px, rgba(255, 200, 100, 0.08) 7px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(90deg, transparent, transparent 6px, rgba(255, 200, 100, 0.08) 7px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bg-family {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 50% 50%, rgba(255, 100, 100, 0.15) 150px, transparent 250px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 30% 40%, rgba(255, 150, 150, 0.1) 80px, transparent 120px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 70% 60%, rgba(255, 150, 150, 0.1) 80px, transparent 120px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>linear-gradient(180deg, #2a1a2a 0%, #3a2a3a 50%, #2a1a2a 100%),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 100, 100, 0.03) 21px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.bg-space {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 25% 30%, rgba(200, 100, 255, 0.4) 60px, transparent 100px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 75% 60%, rgba(100, 200, 255, 0.3) 50px, transparent 90px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 30px, transparent 50px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>linear-gradient(180deg, #0a0a1a 0%, #1a0a2a 50%, #0a0a1a 100%),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(255, 255, 255, 0.03) 25px),</p>
+<p class="p1"><span class="Apple-converted-space">                </span>repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(255, 255, 255, 0.03) 25px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.content-box {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(139, 108, 66, 0.9);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 800px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 6px solid #5a5a5a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow:<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>0 0 0 4px #3d3d3d,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>0 0 30px rgba(0, 0, 0, 0.5);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>h2 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffaa00;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 0 30px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 4px 4px 0 #5a3a00;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>h3 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.3em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffff55;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 3px 3px 0 #5a5a00;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.story-text {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.75em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 0 rgba(0,0,0,0.5);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 2;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.highlight {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffff55;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 0 #5a5a00;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.danger {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ff5555;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 0 #5a0000;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.success {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #55ff55;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 0 #005500;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.minecraft-button {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Press Start 2P', monospace;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #7a7a7a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 4px solid #000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.1s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 0 #000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.minecraft-button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #9a9a9a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.minecraft-button:active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(2px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.minecraft-button.danger-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #aa3333;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #ff0000;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.minecraft-button.danger-btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #cc4444;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.minecraft-button.success-btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #33aa33;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #00ff00;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.minecraft-button.success-btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #44cc44;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.minecraft-input {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Press Start 2P', monospace;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #3d3d3d;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 4px solid #000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffff55;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 300px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 0 #000;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.minecraft-input::placeholder {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #7a7a7a;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.artifact {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 4px solid #5a5a5a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(139, 108, 66, 0.8);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.7em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffff55;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 0 #000;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.inventory-box {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 4px solid #5a5a5a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(61, 61, 61, 0.8);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.7em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffff55;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.family-wish {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(61, 61, 61, 0.7);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 4px solid #ffff55;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.family-wish p {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.7em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 2;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.family-wish .author {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ffff55;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8em;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.riddle-box {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.5);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 4px dashed #ffff55;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.memory {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(100, 150, 255, 0.15);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-left: 4px solid #aaaaff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 15px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-style: italic;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hidden { display: none; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.choices {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 30px 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.heart-message {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ff5555;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 25px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 0 #5a0000;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.progress-bar {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #3d3d3d;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 3px solid #5a5a5a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 15px 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.progress-fill {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #55ff55;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: width 0.5s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 768px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>h2 { font-size: 1.5em; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>h3 { font-size: 1em; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.content-box { padding: 20px; margin: 0 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.story-text { font-size: 0.65em; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.minecraft-button { font-size: 0.65em; padding: 10px 15px; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.minecraft-input { font-size: 0.65em; width: 250px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ===== ОБЛОЖКА ===== --&gt;</p>
+<p class="p1">&lt;div class="chapter bg-cover" style="background-attachment: scroll; min-height: 100vh;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 style="font-size: 1.8em; color: #ffff55; text-shadow: 4px 4px 0 #5a5a00;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>⛏️ Мир Имён ⛏️</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p style="color: #ffff55; text-shadow: 2px 2px 0 #000; margin: 20px 0; font-size: 0.8em; line-height: 2;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Расширенное приключение для особенного волшебника,&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>которому сегодня исполняется &lt;span class="highlight"&gt;8 лет&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p style="color: #aaaaaa; font-size: 0.65em; margin-top: 30px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>▼ Листай вниз, чтобы начать ▼</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ===== ГЛАВА 1: ПРОБУЖДЕНИЕ ВОЛШЕБНИКА ===== --&gt;</p>
+<p class="p1">&lt;div class="chapter bg-room" id="ch1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Ⅰ. Пробуждение&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>В твоей комнате, среди чертежей и моделей атомов, что-то изменилось. Старое радио, собранное из деталей велосипеда и фантика от конфеты, вдруг ожило. Оно замерцало &lt;span class="highlight"&gt;оранжевым светом&lt;/span&gt; и прошептало:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text" style="color: #ffff55;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;em&gt;«Сегодня твой день, Волшебник. Тебе 8 лет — возраст первой магии. Миры ждут того, кто осмелится пройти сквозь Пески, Атомы, Зону и Грозу. Только так ты найдёшь Искру Начала и вернёшься домой с самым важным словом. Но будь осторожен: в каждом мире есть свои испытания и тайны. Выбирай путь мудро.»&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Твой велосипед у окна засветился. Рядом с ним появилась &lt;span class="highlight"&gt;Карта Миров&lt;/span&gt; — на ней отмечены четыре точки. Пора отправляться!</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="choices" id="nameChoice"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="askName()"&gt;Я готов! Назвать своё имя&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="nameInput" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="wizardNameField" class="minecraft-input" placeholder="Введи своё имя, маг"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="setName()"&gt;Отправиться в путь!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="nameResult" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text" id="nameGreeting"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="inventory-box" id="inventory"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>🎒 Твой рюкзак: Карта Миров</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ===== ГЛАВА 2: ПУСТЫНЯ АРРАКИСА (РАСШИРЕННАЯ) ===== --&gt;</p>
+<p class="p1">&lt;div class="chapter bg-desert" id="ch2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Ⅱ. Пески Арракиса&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Колёса велосипеда касаются золотого песка. Ты на &lt;span class="highlight"&gt;Арракисе&lt;/span&gt; — планете бескрайних дюн. Воздух дрожит от жары и магии. Карта Миров в твоём рюкзаке нагревается — значит, ты на верном пути.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;🏜️ Встреча с торговцем&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Из песчаной бури выходит загадочный торговец-фремен по имени &lt;span class="highlight"&gt;Зигмунд&lt;/span&gt;. Его глаза светятся синим — он знает тайны пустыни.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;em&gt;«Приветствую, &lt;span class="wiz"&gt;путник&lt;/span&gt;. Вижу, ты ищешь путь через пустыню. Я могу показать короткую дорогу к Великому Червю. Но есть и другой путь — через &lt;span class="highlight"&gt;Забытый Храм&lt;/span&gt;, где спрятан древний артефакт. Он может пригодиться в мире атомов. Что выберешь?»&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="choices" id="duneChoice1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="dunePath('worm')"&gt;🌵 К Великому Червю (быстрый путь)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="dunePath('temple')"&gt;🏛️ В Забытый Храм (за артефактом)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- ПУТЬ К ЧЕРВЮ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="duneWormPath" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;🐉 Великий Червь&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Ты мчишься через барханы. Песок под колёсами начинает дрожать — впереди поднимается &lt;span class="highlight"&gt;Великий Червь&lt;/span&gt;. Он огромен, но его глаза смотрят с мудростью, а не с угрозой.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="riddle-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="story-text" style="text-align: center;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;em&gt;«Я храню ритмы этой планеты,»&lt;/em&gt; — гудит Червь. — &lt;em&gt;«Но чтобы пройти дальше, ответь на мою загадку:&lt;br&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;strong&gt;Что можно разбить одним словом,&lt;br&gt;но чинить приходится годами?»&lt;/strong&gt;&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="choices"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="minecraft-button" onclick="answerWormRiddle('trust')"&gt;Доверие&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="minecraft-button" onclick="answerWormRiddle('glass')"&gt;Стекло&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="minecraft-button" onclick="answerWormRiddle('heart')"&gt;Сердце&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="wormRiddleResult" class="hidden"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- ПУТЬ В ХРАМ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="duneTemplePath" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;🏛️ Забытый Храм&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Зигмунд ведёт тебя через лабиринт скал. Внутри храма темно, но стены светятся синими рунами. В центре зала стоит алтарь с &lt;span class="highlight"&gt;Кристаллом Памяти&lt;/span&gt;.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;em&gt;«Этот кристалл хранит знания древних цивилизаций,»&lt;/em&gt; — шепчет Зигмунд. — &lt;em&gt;«Но чтобы взять его, нужно победить стража.»&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Из песка поднимается &lt;span class="highlight"&gt;Песчаный Элементаль&lt;/span&gt; — существо из вихря и золотых искр.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="choices"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="minecraft-button" onclick="fightElemental('magic')"&gt;Использовать магию&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="minecraft-button" onclick="fightElemental('talk')"&gt;Попробовать договориться&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="elementalResult" class="hidden"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ===== ГЛАВА 3: МИР АТОМОВ (РАСШИРЕННАЯ) ===== --&gt;</p>
+<p class="p1">&lt;div class="chapter bg-atoms" id="ch3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Ⅲ. Танец Электронов&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Песок исчезает. Ты уменьшаешься до размеров частицы и оказываешься на орбите атома &lt;span class="highlight"&gt;Урана-235&lt;/span&gt; — того самого, что изменил мир в Чернобыле.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;⚡ Знакомство с Искриком&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>К тебе подлетает электрон по имени &lt;span class="highlight"&gt;Искрик&lt;/span&gt;. Он светится то синим, то оранжевым — как маленькая молния.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;em&gt;«Привет, &lt;span class="wiz"&gt;Волшебник&lt;/span&gt;! Я — твой проводник в мире атомов. Впереди портал в Город Тишины, но дорога опасна. В туннелях прячется &lt;span class="highlight"&gt;Тёмная Материя&lt;/span&gt; — она питается страхом. Нам нужно выбрать: лететь быстро (рискованно) или осторожно (дольше, но безопаснее). Что скажешь?»&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="choices" id="atomChoice1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button danger-btn" onclick="atomPath('fast')"&gt;💨 Быстрый путь (опасно!)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button success-btn" onclick="atomPath('safe')"&gt;🛡️ Осторожный путь&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- БЫСТРЫЙ ПУТЬ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="atomFastPath" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;💨 Скоростной тоннель&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Вы с Искриком врываетесь в скоростной тоннель. Вокруг мелькают &lt;span class="highlight"&gt;квантовые вспышки&lt;/span&gt;. Но вдруг путь перекрывает &lt;span class="danger"&gt;Тёмная Материя&lt;/span&gt; — она похожа на чёрное облако с сотней глаз.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;em&gt;«Отдай свой страх!»&lt;/em&gt; — шипит она.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="choices"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="minecraft-button" onclick="fightDarkMatter('courage')"&gt;Вспомнить что-то храброе&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="minecraft-button" onclick="fightDarkMatter('spell')"&gt;Произнести заклинание&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="darkMatterResult" class="hidden"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- ОСТОРОЖНЫЙ ПУТЬ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="atomSafePath" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;🛡️ Обходной путь&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Вы летите медленно, прячась за орбитами. Искрик показывает тебе удивительные вещи: &lt;span class="highlight"&gt;квантовую запутанность&lt;/span&gt; (две частицы танцуют одинаково на расстоянии) и &lt;span class="highlight"&gt;рождение фотона&lt;/span&gt; (вспышка чистого света).</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;em&gt;«Знаешь,»&lt;/em&gt; — говорит Искрик, — &lt;em&gt;«атомы внутри тебя когда-то были внутри звёзд. Ты буквально сделан из звёздной пыли.»&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Вы благополучно добираетесь до портала. &lt;span class="success"&gt;Путь безопасен!&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="choices"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="minecraft-button" onclick="arriveAtZone()"&gt;Войти в портал&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="atomArrival" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="success"&gt;Портал открыт!&lt;/span&gt; Впереди виден Город Тишины. Искрик машет на прощание: &lt;em&gt;«Удачи, Волшебник! Помни: ты — звезда.»&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="artifact"&gt;⚡ Частица Искрика&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ===== ГЛАВА 4: ЗОНА ОТЧУЖДЕНИЯ (РАСШИРЕННАЯ) ===== --&gt;</p>
+<p class="p1">&lt;div class="chapter bg-zone" id="ch4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Ⅳ. Город Тишины&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Портал выносит тебя в &lt;span class="highlight"&gt;Припять&lt;/span&gt;. Колесо обозрения застыло, деревья проросли сквозь асфальт. Тишина здесь особенная — она звенит.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;🤖 Встреча с Р-47&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Из-за ржавого здания выходит робот. Его корпус покрыт мхом, но манипулятор светится зелёным. На груди надпись: &lt;span class="highlight"&gt;«Р-47. Ликвидатор. Помню.»&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;em&gt;«Привет, &lt;span class="wiz"&gt;маленький Волшебник&lt;/span&gt;,»&lt;/em&gt; — голос робота звучит как старое радио. — &lt;em&gt;«Я ждал тебя. В этом городе я остался один. Мои собратья... отключились. Но я продолжаю измерять радиацию и хранить память.»&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Робот показывает тебе &lt;span class="highlight"&gt;Стену Памяти&lt;/span&gt; — на ней выбиты имена всех, кто спасал мир.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="riddle-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text" style="text-align: center;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;em&gt;«Волшебник, оставь и ты своё имя на Стене. Напиши его здесь — и оно навсегда станет частью памяти этого места.»&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="memorialName" class="minecraft-input" placeholder="Впиши своё имя..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="writeOnMemorial()"&gt;Вписать&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="memorialResult" class="hidden"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text" id="robotGift" style="display: none;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Р-47 кивает: &lt;em&gt;«Теперь ты — часть истории. Возьми это — оно поможет пройти Грозу.»&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Робот протягивает &lt;span class="highlight"&gt;флакон с ванилью&lt;/span&gt; и &lt;span class="highlight"&gt;красный брусок Тин-Тина&lt;/span&gt;.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="choices" id="zoneChoices" style="display: none;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="collectArtifacts()"&gt;Принять дары&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="zoneResult" class="hidden"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- ДОПОЛНИТЕЛЬНЫЙ КВЕСТ: СИГНАЛ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="zoneExtra" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;📡 Загадочный сигнал&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Перед уходом Р-47 сообщает: &lt;em&gt;«Из саркофага поступает странный сигнал. Там может быть что-то важное. Но это опасно. Решать тебе.»&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="choices"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="minecraft-button danger-btn" onclick="exploreSarcophagus()"&gt;Исследовать сигнал&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="minecraft-button" onclick="skipSarcophagus()"&gt;Идти дальше&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="sarcophagusResult" class="hidden"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ===== ГЛАВА 5: ЛАБОРАТОРИЯ ВОЛШЕБНИКА (РАСШИРЕННАЯ) ===== --&gt;</p>
+<p class="p1">&lt;div class="chapter bg-lab" id="ch5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Ⅴ. Магия Ванили и Тин-Тина&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Ты оказываешься в своей &lt;span class="highlight"&gt;волшебной лаборатории&lt;/span&gt; под звёздным небом. Здесь всё знакомо, но сегодня всё по-особенному.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;🐱 Знакомство с Мур-Муром&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>На стойке с зельями сидит &lt;span class="highlight"&gt;кот-алхимик Мур-Мур&lt;/span&gt;. Его шерсть переливается фиолетовым, а глаза светятся как изумруды.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;em&gt;«Мяу-привет! Я помогу тебе приготовить зелье. Смотри: у тебя есть &lt;span class="highlight"&gt;Ваниль&lt;/span&gt; (успокоение) и &lt;span class="highlight"&gt;Тин-Тин&lt;/span&gt; (сила). Но для идеального зелья нужен третий ингредиент — &lt;span class="highlight"&gt;Искра&lt;/span&gt;. Где мы её возьмём?»&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="choices" id="labChoice1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="findSpark('crystal')"&gt;Использовать Кристалл Памяти&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="findSpark('particle')"&gt;Использовать Частицу Искрика&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="findSpark('memory')"&gt;Использовать своё воспоминание&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="sparkResult" class="hidden"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="labPhase2" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3&gt;🧪 Смешивание зелья&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Мур-Мур мурлычет рецепт: &lt;em&gt;«Сначала Ваниль — она успокоит бурю. Потом Искра — она даст направление. И наконец Тин-Тин — для активации! Но чтобы Тин-Тин сработал, нужен &lt;span class="highlight"&gt;боевой клич&lt;/span&gt;. Придумай его!»&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="choices"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="minecraft-button" onclick="askBattlecry()"&gt;Придумать клич&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="battlecryInput" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="text" id="battlecryField" class="minecraft-input" placeholder="Твой клич!"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="minecraft-button" onclick="activateTNT()"&gt;Активировать!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="labResult" class="hidden"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ===== ГЛАВА 6: ГРОЗА И РАДУГА (РАСШИРЕННАЯ) ===== --&gt;</p>
+<p class="p1">&lt;div class="chapter bg-storm" id="ch6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Ⅵ. Гроза Обид&lt;/h2&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Небо чернеет. Тучи сгущаются, и начинается &lt;span class="highlight"&gt;Гроза Обид&lt;/span&gt; — финальное испытание. Молнии бьют в землю, и из каждой вспышки появляются &lt;span class="danger"&gt;Тени&lt;/span&gt; — они похожи на моменты ссор и обид.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;🌩️ Три волны&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="highlight"&gt;Первая Тень&lt;/span&gt; — это момент, когда ты поссорился с мамой из-за какой-то мелочи.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Ты достаёшь &lt;span class="highlight"&gt;Ваниль&lt;/span&gt;. Её аромат смягчает Тень, и она превращается в светлое воспоминание: как вы потом мирились и смеялись.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="highlight"&gt;Вторая Тень&lt;/span&gt; — обида на самого себя за что-то, что не получилось.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="highlight"&gt;Искра&lt;/span&gt; внутри тебя вспыхивает. Ты понимаешь: ошибаться — это нормально, ты учишься. Тень тает.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="highlight"&gt;Третья Тень&lt;/span&gt; — самая большая. Она похожа на страх, что тебя не поймут.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Ты поджигаешь &lt;span class="highlight"&gt;Тин-Тин&lt;/span&gt;. Грохочет взрыв — и Тень разлетается на тысячи искр!</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;🌈 Хранитель Радуги&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Тучи расходятся. В небе появляется &lt;span class="highlight"&gt;Хранитель Радуги&lt;/span&gt; — существо из чистого света.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="riddle-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text" style="text-align: center;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;em&gt;«Ты прошёл три волны, Волшебник. Но остался последний вопрос:&lt;br&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;strong&gt;Что самое важное ты понял за своё путешествие?»&lt;/strong&gt;&lt;/em&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="choices"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="minecraft-button" onclick="answerRainbow('love')"&gt;Что любовь сильнее ссор&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="minecraft-button" onclick="answerRainbow('magic')"&gt;Что магия повсюду&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="minecraft-button" onclick="answerRainbow('family')"&gt;Что я нужен своим родным&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="rainbowResult" class="hidden"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ===== ГЛАВА 7: ДОМ И МАМА ===== --&gt;</p>
+<p class="p1">&lt;div class="chapter bg-home" id="ch7"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Ⅶ. Бумажное Сердце&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Ты открываешь глаза. Ты дома. Велосипед стоит у окна. На столе лежит &lt;span class="highlight"&gt;записка от мамы&lt;/span&gt;:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p style="color: #ffff55; font-size: 0.75em; margin: 20px 0; text-shadow: 2px 2px 0 #000; line-height: 2; font-style: italic; text-align: center;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>«Мой любимый Волшебник,&lt;br&gt;я всегда рядом, даже когда ты в других мирах.&lt;br&gt;Ты — моё самое большое приключение.»</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Ты берёшь ручку и хочешь написать маме в ответ...</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="choices" id="momChoice"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="askMomMessage()"&gt;Написать маме&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="momInput" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="momMessageField" class="minecraft-input" placeholder="Твои слова маме..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="sendMomMessage()"&gt;Отправить 💌&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="momResult" class="hidden"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ===== ГЛАВА 8: ТЕБЯ ЛЮБЯТ ===== --&gt;</p>
+<p class="p1">&lt;div class="chapter bg-family" id="ch8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Ⅷ. Тебя любят&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Когда &lt;span class="wiz"&gt;Волшебник&lt;/span&gt; дописал записку, комната наполнилась тёплым золотым светом. Из света вышли силуэты — все, кто его любит.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="heart-message"&gt;❤️ Ты — сердце этого мира ❤️&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="family-wish"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;«Мой дорогой Волшебник, — сказала &lt;span class="highlight"&gt;мама&lt;/span&gt;. — Ты — причина, по которой я просыпаюсь с улыбкой. Твои записки и сердечки — самое ценное. Без тебя мир стал бы серым, как Город Тишины. Я люблю тебя больше, чем все звёзды.»&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="author"&gt;— Мама&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="family-wish"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;«Эй, герой! — улыбнулась &lt;span class="highlight"&gt;бабушка&lt;/span&gt;. — Когда ты рассказываешь про атомы и планеты, твои глаза сияют. Ты изменишь мир, потому что у тебя есть воображение и доброе сердце.»&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="author"&gt;— Бабушка&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="family-wish"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;«С Днём Рождения, маленький творец! — подмигнула &lt;span class="highlight"&gt;Ася&lt;/span&gt;. — Мир держится на таких, как ты. На тех, кто придумывает слова и миры. Ты — клей, который соединяет всех нас.»&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="author"&gt;— Ася&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Силуэты обняли &lt;span class="wiz"&gt;Волшебника&lt;/span&gt;, и он почувствовал: &lt;span class="highlight"&gt;он — центр вселенной&lt;/span&gt;. Его любовь, фантазия, слова — это то, что держит миры вместе.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text" style="text-align: center; color: #ffff55;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;strong&gt;Без тебя мир не может существовать.&lt;br&gt;Ты — Волшебник, и это твоя главная магия.&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="choices"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="scrollToChapter('ch9')"&gt;Узнать, что дальше&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- ===== ГЛАВА 9: ЭПИЛОГ И КНИГА МИРОВ ===== --&gt;</p>
+<p class="p1">&lt;div class="chapter bg-space" id="ch9"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="content-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Эпилог: Твоя Вселенная&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Ты прошёл все испытания: подружился с Великим Червём (или добыл Кристалл Памяти), пролетел сквозь квантовые тоннели с Искриком, оставил имя на Стене Памяти и победил Грозу Обид.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>В твоём рюкзаке: &lt;span class="highlight"&gt;Ваниль&lt;/span&gt; (зелье мира), &lt;span class="highlight"&gt;Тин-Тин&lt;/span&gt; (сила защиты), и целая Вселенная, которая ждёт твоих новых приключений.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="story-text"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Сегодня — &lt;span class="highlight"&gt;твой День Рождения&lt;/span&gt;. Самое время загадать желание.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="choices" id="wishChoice"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="askWish()"&gt;Загадать желание&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="wishInput" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="wishField" class="minecraft-input" placeholder="Моё желание..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="minecraft-button" onclick="makeWish()"&gt;Загадать! ✨&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="wishResult" class="hidden"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- КНИГА МИРОВ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="inventory-box" id="bookOfWorlds" style="display: none; margin-top: 30px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h3 style="color: #ffff55; text-shadow: 2px 2px 0 #000; margin-bottom: 20px; font-size: 0.9em;"&gt;📖 Твоя Книга Миров&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="color: #aaaaaa; font-size: 0.7em;"&gt;👤 &lt;strong&gt;Волшебник:&lt;/strong&gt; &lt;span id="bookName" style="color: #ffff55;"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="color: #aaaaaa; font-size: 0.7em;"&gt;🏜️ &lt;strong&gt;Путь в Пустыне:&lt;/strong&gt; &lt;span id="bookDune" style="color: #ffff55;"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="color: #aaaaaa; font-size: 0.7em;"&gt;⚛️ &lt;strong&gt;Путь в Атомах:&lt;/strong&gt; &lt;span id="bookAtom" style="color: #ffff55;"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="color: #aaaaaa; font-size: 0.7em;"&gt;🏚️ &lt;strong&gt;Город Тишины:&lt;/strong&gt; &lt;span id="bookZone" style="color: #ffff55;"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="color: #aaaaaa; font-size: 0.7em;"&gt;💥 &lt;strong&gt;Боевой клич:&lt;/strong&gt; &lt;span id="bookCry" style="color: #ffff55;"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="color: #aaaaaa; font-size: 0.7em;"&gt;💌 &lt;strong&gt;Записка маме:&lt;/strong&gt; &lt;span id="bookMom" style="color: #ffff55;"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="color: #aaaaaa; font-size: 0.7em;"&gt;🌟 &lt;strong&gt;Желание:&lt;/strong&gt; &lt;span id="bookWish" style="color: #ffff55;"&gt;&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="text-align: center; color: #55ff55; margin-top: 20px; text-shadow: 2px 2px 0 #000; font-size: 0.8em;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Эту книгу можно перечитывать всегда.</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let state = {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>wizardName: 'Волшебник',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inventory: ['Карта Миров'],</p>
+<p class="p1"><span class="Apple-converted-space">        </span>duneChoice: null,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>atomPath: null,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>zoneMemorial: false,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>zoneExplored: false,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>sparkSource: null,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>battlecry: null,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>momMessage: null,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>wish: null,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>rainbowAnswer: null</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateNames() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.wiz').forEach(el =&gt; el.textContent = state.wizardName);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function scrollToChapter(id) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById(id).scrollIntoView({ behavior: 'smooth' });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== ГЛАВА 1 =====</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function askName() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('nameChoice').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('nameInput').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function setName() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const name = document.getElementById('wizardNameField').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!name) { alert('Введи своё имя, Волшебник!'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.wizardName = name;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateNames();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('nameInput').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('nameResult').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('nameGreeting').innerHTML =</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`Приветствую тебя, &lt;span class="highlight"&gt;${state.wizardName}&lt;/span&gt;! Твой велосипед заряжен магией восьмилетия. Карта Миров указывает на Пустыню. Вперёд!`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>scrollToChapter('ch2');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== ГЛАВА 2: ПУСТЫНЯ =====</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function dunePath(choice) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.duneChoice = choice;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('duneChoice1').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (choice === 'worm') {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('duneWormPath').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('duneTemplePath').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function answerWormRiddle(answer) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('wormRiddleResult').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (answer === 'trust' || answer === 'heart') {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('wormRiddleResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="story-text"&gt;&lt;span class="success"&gt;Верно!&lt;/span&gt; Червь одобрительно гудит: &lt;em&gt;«Мудрый ответ. Доверие и сердце — их легко разбить, но трудно исцелить. Ты достоин пройти дальше. Возьми &lt;span class="highlight"&gt;Чешуйку Червя&lt;/span&gt; — она защитит тебя в мире атомов.»&lt;/em&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="artifact"&gt;🐉 Чешуйка Червя&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>state.inventory.push('Чешуйка Червя');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('wormRiddleResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="story-text"&gt;Червь качает головой: &lt;em&gt;«Стекло разбить легко, но я думал о другом. Впрочем, ты старался. Проходи.»&lt;/em&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="artifact"&gt;🐉 Чешуйка Червя&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>state.inventory.push('Чешуйка Червя');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateInventory();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; scrollToChapter('ch3'), 1500);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function fightElemental(method) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('elementalResult').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (method === 'magic') {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('elementalResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="story-text"&gt;Ты направляешь магию на Элементаля. Он рассыпается золотыми искрами и оставляет &lt;span class="highlight"&gt;Кристалл Памяти&lt;/span&gt;.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="artifact"&gt;💎 Кристалл Памяти&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>state.inventory.push('Кристалл Памяти');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('elementalResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="story-text"&gt;&lt;em&gt;«Ты первый, кто решил поговорить,»&lt;/em&gt; — удивляется Элементаль. — &lt;em&gt;«За уважение я отдам тебе Кристалл добровольно.»&lt;/em&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="artifact"&gt;💎 Кристалл Памяти&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>state.inventory.push('Кристалл Памяти');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateInventory();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; scrollToChapter('ch3'), 1500);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== ГЛАВА 3: АТОМЫ =====</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function atomPath(choice) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.atomPath = choice;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('atomChoice1').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (choice === 'fast') {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('atomFastPath').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('atomSafePath').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function fightDarkMatter(method) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('darkMatterResult').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('darkMatterResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;${method === 'courage' ? 'Ты вспоминаешь, как храбро шёл через пустыню. Тёмная Материя съёживается — она не выносит смелости!' : 'Ты произносишь заклинание-оберег. Тёмная Материя рассеивается!'}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;&lt;span class="success"&gt;Победа!&lt;/span&gt; Путь свободен. Искрик восхищён: &lt;em&gt;«Ты справился! Портал прямо за углом.»&lt;/em&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="artifact"&gt;⚡ Частица Искрика&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.inventory.push('Частица Искрика');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateInventory();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('atomArrival').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function arriveAtZone() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.inventory.push('Частица Искрика');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateInventory();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('atomArrival').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('atomSafePath').querySelector('.choices').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; scrollToChapter('ch4'), 1500);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== ГЛАВА 4: ЗОНА =====</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function writeOnMemorial() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const name = document.getElementById('memorialName').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!name) { alert('Впиши своё имя!'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.zoneMemorial = true;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('memorialResult').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('memorialResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;&lt;span class="success"&gt;Имя вписано!&lt;/span&gt; Стена Памяти на мгновение вспыхивает. Р-47 склоняет голову: &lt;em&gt;«Спасибо. Теперь нас помнят.»&lt;/em&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('robotGift').style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('zoneChoices').style.display = 'flex';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function collectArtifacts() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.inventory.push('Флакон Ванили', 'Тин-Тин');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('zoneChoices').style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('zoneResult').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('zoneResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;Ты бережно кладёшь &lt;span class="highlight"&gt;флакон с ванилью&lt;/span&gt; и &lt;span class="highlight"&gt;Тин-Тин&lt;/span&gt; в рюкзак.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="artifact"&gt;🧪 Флакон Ванили&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="artifact"&gt;🧨 Тин-Тин&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateInventory();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('zoneExtra').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function exploreSarcophagus() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.zoneExplored = true;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('sarcophagusResult').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('sarcophagusResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;Ты осторожно приближаешься к саркофагу. Внутри — &lt;span class="highlight"&gt;светящийся цветок&lt;/span&gt;, выросший прямо в бетоне. Р-47 объясняет: &lt;em&gt;«Это Жизнецвет. Он вырос здесь вопреки всему. Символ надежды.»&lt;/em&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="artifact"&gt;🌸 Жизнецвет&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.inventory.push('Жизнецвет');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateInventory();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function skipSarcophagus() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('sarcophagusResult').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('sarcophagusResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;Ты решаешь не рисковать. Р-47 понимает: &lt;em&gt;«Мудрое решение. Иногда важнее сохранить себя, чем узнать все тайны.»&lt;/em&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; scrollToChapter('ch5'), 1000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== ГЛАВА 5: ЛАБОРАТОРИЯ =====</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function findSpark(source) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.sparkSource = source;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('labChoice1').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('sparkResult').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('labPhase2').classList.remove('hidden');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const messages = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'crystal': 'Ты достаёшь Кристалл Памяти. Он вспыхивает и выпускает Искру — чистое сияние знаний.',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'particle': 'Ты выпускаешь Частицу Искрика. Она кружится и превращается в Искру — быструю, как электрон.',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>'memory': 'Ты закрываешь глаза и вспоминаешь самый счастливый момент. Из сердца рождается Искра — тёплая и золотая.'</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('sparkResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;${messages[source]}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="artifact"&gt;✨ Искра&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function askBattlecry() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelector('#labPhase2 .choices').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('battlecryInput').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function activateTNT() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const cry = document.getElementById('battlecryField').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!cry) { alert('Придумай боевой клич!'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.battlecry = cry;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('battlecryInput').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('labResult').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('labResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;Ты кричишь: &lt;span class="highlight"&gt;«${cry}!!!»&lt;/span&gt; — и Тин-Тин начинает дрожать и светиться. Зелье готово!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;Мур-Мур мурлычет: &lt;em&gt;«Отлично! Теперь ты готов встретить Грозу.»&lt;/em&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; scrollToChapter('ch6'), 1500);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== ГЛАВА 6: ГРОЗА =====</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function answerRainbow(answer) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.rainbowAnswer = answer;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('rainbowResult').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('rainbowResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;&lt;span class="success"&gt;Хранитель Радуги улыбается!&lt;/span&gt; &lt;em&gt;«Все ответы верны. Ты понял главное: любовь, магия и семья — это одно и то же. Проходи домой, Волшебник.»&lt;/em&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;В небе вспыхивает &lt;span class="highlight"&gt;радуга&lt;/span&gt; со словами: &lt;strong&gt;«Любовь — это когда после грозы вместе чинят мир.»&lt;/strong&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; scrollToChapter('ch7'), 2000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function returnHome() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>scrollToChapter('ch7');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== ГЛАВА 7: МАМА =====</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function askMomMessage() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('momChoice').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('momInput').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function sendMomMessage() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const msg = document.getElementById('momMessageField').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!msg) { alert('Напиши маме хотя бы слово!'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.momMessage = msg;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('momInput').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('momResult').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('momResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;Ты пишешь: &lt;span class="highlight"&gt;«${msg}»&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;Мама читает и улыбается. Её глаза сияют, как звёзды. Она обнимает тебя крепко-крепко.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text" style="color: #ffff55;"&gt;&lt;em&gt;«С Днём Рождения, мой Волшебник. Ты — лучшее, что случилось со Вселенной.»&lt;/em&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setTimeout(() =&gt; scrollToChapter('ch8'), 1500);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ===== ГЛАВА 9: ЭПИЛОГ =====</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function askWish() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('wishChoice').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('wishInput').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function makeWish() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const wish = document.getElementById('wishField').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!wish) { alert('Загадай желание!'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state.wish = wish;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('wishInput').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('wishResult').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('wishResult').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;Ты загадываешь: &lt;span class="highlight"&gt;«${wish}»&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="story-text"&gt;Звёзды подмигивают. Где-то в параллельной вселенной твоё желание уже сбывается.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="font-size: 1em; color: #ffff55; text-shadow: 2px 2px 0 #000; text-align: center; margin-top: 30px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;strong&gt;🎂 С Днём Рождения, ${state.wizardName}! 🎂&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>showBookOfWorlds();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showBookOfWorlds() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('bookOfWorlds').style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('bookName').textContent = state.wizardName;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('bookDune').textContent =</p>
+<p class="p1"><span class="Apple-converted-space">            </span>state.duneChoice === 'worm' ? 'Великий Червь 🐉' : 'Забытый Храм 💎';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('bookAtom').textContent =</p>
+<p class="p1"><span class="Apple-converted-space">            </span>state.atomPath === 'fast' ? 'Скоростной тоннель 💨' : 'Обходной путь 🛡️';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('bookZone').textContent =</p>
+<p class="p1"><span class="Apple-converted-space">            </span>state.zoneExplored ? 'Исследовал саркофаг 🌸' : 'Безопасный путь 🏚️';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('bookCry').textContent = state.battlecry || 'Не активирован';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('bookMom').textContent = `«${state.momMessage || '...'}»`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('bookWish').textContent = `«${state.wish || '...'}»`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateInventory() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const invEl = document.getElementById('inventory');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (invEl &amp;&amp; state.inventory.length &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>invEl.innerHTML = `🎒 Твой рюкзак: ${state.inventory.join(' | ')}`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>updateNames();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
